@@ -1,0 +1,7 @@
+[requires]
+bzip2/1.0.8
+#pdfium/cci.20210730
+
+[generators]
+CMakeDeps
+CMakeToolchain
