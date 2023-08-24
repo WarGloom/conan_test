@@ -1,6 +1,7 @@
 import os
 
 from conan import ConanFile
+from conan.tools.cmake import cmake_layout
 
 
 class CompressorRecipe(ConanFile):
@@ -15,6 +16,8 @@ class CompressorRecipe(ConanFile):
         self.tool_requires("cmake/3.22.6")
 
     def layout(self):
+        cmake_layout(self)
+        pass
         # We make the assumption that if the compiler is msvc the
         # CMake generator is multi-config
         multi = True if self.settings.get_safe("compiler") == "msvc" else False

@@ -16,9 +16,9 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 # include(Platform)
 # include(RuntimeSpec)
 
-list(PREPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/build)
-list(PREPEND CMAKE_PREFIX_PATH ${CMAKE_SOURCE_DIR}/build)
-message(${CMAKE_PREFIX_PATH})
+#list(PREPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/build)
+#list(PREPEND CMAKE_PREFIX_PATH ${CMAKE_SOURCE_DIR}/build)
+#message(${CMAKE_PREFIX_PATH})
 
 # find_package(BZip2 REQUIRED NO_MODULE)
 find_package(BZip2 REQUIRED)
@@ -33,13 +33,15 @@ message("${GTEST_INCLUDE_DIRS}")
 message("${GTEST_LIBRARIES}")
 message("${BZip2_LIBRARIES}")
 message("${BZIP2_INCLUDE_DIRS}")
-add_executable(aaa a.cpp)
+add_executable(${PROJECT_NAME} a.cpp)
+
 target_link_libraries(
-    aaa
+${PROJECT_NAME}
     BZip2::BZip2
     GTest::gtest
     GTest::gtest_main
 )
+#target_include_directories(${PROJECT_NAME} PRIVATE ${CONAN_INCLUDE_DIRS})
 # add_custom_target(genexdebug COMMAND ${CMAKE_COMMAND} -E echo "$<TARGET_PROPERTY:gtest::gtest,INTERFACE_LINK_LIBRARIES>")
 file(GENERATE
      OUTPUT ${CMAKE_SOURCE_DIR}/log.txt
