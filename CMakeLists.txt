@@ -21,7 +21,7 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 #message(${CMAKE_PREFIX_PATH})
 
 # find_package(BZip2 REQUIRED NO_MODULE)
-find_package(BZip2 REQUIRED)
+find_package(BZip2 REQUIRED NO_MODULE)
 find_package(GTest REQUIRED)
 # ...
 message("${GTest_FOUND}")
